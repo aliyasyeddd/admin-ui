@@ -1,0 +1,72 @@
+ .table {
+    margin: auto;
+    border-collapse: collapse;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem;
+    width: 85vw;
+    height: 80vh; 
+} 
+
+table, tr {
+    padding: 1rem;
+    border: 1px solid;
+    border-color: #F7E1AE; 
+}
+
+
+table th {
+    position: sticky;
+    background-color: #FFB4B4;
+    padding: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+table tr {
+    text-align: center;
+    height: 10px;
+}
+
+table td {
+    background-color: #fff5;
+}
+
+.icon-edit {
+    color: #40513B !important ;
+}
+
+.icon-delete {
+    color: #EF4B4B !important;
+}
+
+.icon-save {
+    color: blue !important;
+}
+
+
+ 
+.table-body {
+    cursor: pointer;
+     background-color:   #FFF2F2; 
+}
+
+tbody tr:hover {
+    background-color: #F3E9DD;
+}
+
+.selected {
+    background-color: #CDC7BE;
+    cursor: pointer;
+  }
+
+ @media screen and (max-width:360px ) {
+    .table {
+      overflow: hidden;
+      height: 10%;
+    }
+
+} 
+
+
+
+

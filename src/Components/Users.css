@@ -1,0 +1,11 @@
+.no-users-found {
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    color: #FFB4B4;
+    padding-top: 0rem;
+}
+
+.no-users {
+    text-align: center;
+}
