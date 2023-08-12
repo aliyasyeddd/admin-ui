@@ -1,11 +1,12 @@
- .table {
+ .table-responsive {
     margin: auto;
     border-collapse: collapse;
     align-items: center;
-    justify-content: center;
     padding: 5rem;
-    width: 85vw;
-    height: 80vh; 
+    width: 85%;
+    height: 100%; 
+     table-layout: fixed; 
+    overflow: hidden;
 } 
 
 table, tr {
@@ -18,17 +19,21 @@ table, tr {
 table th {
     position: sticky;
     background-color: #FFB4B4;
-    padding: 1rem;
+    padding: 1.0rem;
     font-family: Arial, Helvetica, sans-serif;
+    text-overflow:ellipsis;
+    overflow: hidden;
 }
 
 table tr {
     text-align: center;
-    height: 10px;
 }
 
 table td {
     background-color: #fff5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 1rem;
 }
 
 .icon-edit {
@@ -41,6 +46,10 @@ table td {
 
 .icon-save {
     color: blue !important;
+}
+
+.icon-cancel {
+    color: green !important;
 }
 
 

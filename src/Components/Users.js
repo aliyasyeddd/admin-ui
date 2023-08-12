@@ -5,10 +5,13 @@ import SearchBox from "./SearchBox";
 import Footer from "./Footer";
 import UserData from "./UserData";
 import Pagination from "./Pagination";
-import { Box, TextField } from "@mui/material";
-import {SentimentDissatisfied} from "@mui/icons-material"
+import { Box } from "@mui/material";
+import { SentimentDissatisfied } from "@mui/icons-material";
+import { useSnackbar } from "notistack";
 
 const Users = () => {
+  //to display the  error message
+  const { enqueueSnackbar } = useSnackbar();
   //storing users in state variable after performing api call
   const [users, setUsers] = useState([]);
   //after performing searching to store the text from the user
@@ -29,8 +32,15 @@ const Users = () => {
       const response = await axios.get(URL);
       setUsers(response.data);
       setSearchTerm(response.data);
-    } catch (error) {
-      console.log(error);
+    } catch (e) {
+      if ( e.response === 500) {
+        enqueueSnackbar(e.response.data.message, { variant: "error" });
+      } else {
+        enqueueSnackbar(
+          "API is failing to respond, Could'nt fetch user's data",
+          { variant: "error" }
+        );
+      }
     }
   };
 
@@ -41,9 +51,10 @@ const Users = () => {
 
   //searching users by filtering property like name, email , role
   //also setting user propereties because the data in api is in caps lock only starting letter
-  const performSearch = (e) => {
-    let term = e.target.value.toLowerCase();
-    if (searchTerm === "") {
+  const performSearch = (search) => {
+    setCurrentPage(1)
+    let term = search.target.value.toLowerCase();
+    if (searchTerm > 0) {
       setUsers(setSearchTerm);
     } else {
       const filterResult = searchTerm.filter(
@@ -76,7 +87,7 @@ const Users = () => {
             />
           </Box>
         </div>
-        <Box  className="no-users">
+        <Box className="no-users">
           <SentimentDissatisfied />
           <h3 className="no-users-found">No User's Data Found!!</h3>
         </Box>

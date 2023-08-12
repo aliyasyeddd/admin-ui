@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import "./Pagination.css";
 
 const Pagination = ({
@@ -62,17 +62,17 @@ const Pagination = ({
             <button
               key={id}
               onClick={() => setCurrentPage(page)}
-              className={page == currentpage ? "active" : ""}
+              className={page === currentpage ? "active" : ""}
             >
               {page}
             </button>
           </div>
         );
       })}
-      <button onClick={handleNextPage} disabled={currentpage === totalPages}>
+      <button onClick={handleNextPage} disabled={currentpage === totalPages} >
         &#8250;
       </button>
-      <button onClick={handleLastPage} disabled={currentpage === totalPages}>
+      <button onClick={handleLastPage} disabled={currentpage === totalPages} >
         &raquo;
       </button>
     </div>
